@@ -100,12 +100,14 @@ month, then group entries by month."
 \\([ \t]:[[:alnum:]:_@#%%]+:\\)?\\s-*$\\)"
        year)
       (org-datetree--find-create
-       "^\\*+[ \t]+%d-\\([01][0-9]\\) \\w+$"
+       "^\\*+[ \t]+%d-\\([01][0-9]\\) [a-zA-Z0-9_:#@ ]+$"
        year month)
       (when (eq time-grouping 'day)
 	(org-datetree--find-create
-	 "^\\*+[ \t]+%d-%02d-\\([0123][0-9]\\) \\w+$"
+	 "^\\*+[ \t]+%d-%02d-\\([0123][0-9]\\) [a-zA-Z0-9_:#@ ]+$"
 	 year month day)))))
+
+
 
 ;;;###autoload
 (defun org-datetree-find-iso-week-create (d &optional keep-restriction)
